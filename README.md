@@ -1,74 +1,43 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Todo Front-End HatchInnovations
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Front-End interface for Todo application. Created with React, Redux, and Tailwind.
 
-## Available Scripts
+## Setup Instructions
 
-In the project directory, you can run:
+1. Clone repo on local machine by typing: git clone https://github.com/samuelchen4/todo-frontend-HatchInnovations.git
+2. Install all dependencies by typing: npm install
+3. Run application by typing: npm start
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Global State Management
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The completed and incompleted task lists are managed in a global store using Redux. This improves scalability and reduces the amount of request made to the server. This architecture also allows pagination to be setup in the future.
 
-### `npm test`
+### Limit 10 Completed Tasks
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If there are 10 completed tasks, adding an additional task will remove a task from the end of the queue, ensuring that the front-end only displays the most recent 10 completed tasks. If there are more than 10 completed tasks, the server will limit the query to the most recently edited 10 results.
 
-### `npm run build`
+### Update Task Names
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Task names can be edited by **double-clicking** a task. To finalize changes to a task, click out of the text-box. List will automatically sort when name changes are made.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Reuseable Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Created reuseable components like Loader and Task to improve efficiency, consistency, and ease of maintenance. A loader animation is triggered whenever calls are made to API. This is done by using a global state variable when A HTTP request is made. The Task component is used for completed and incompleted tasks.
 
-### `npm run eject`
+### Alphebetically Sorted
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Created sorting method can alphebetically sorts each list whenever there are changes on either list.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Clear All With Prompt
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Clicking "Delete all tasks" will prompt the user to input "yes" to delete all completed and incompleted tasks. This can be done on the server as well by running the command: npm run data-destory in the api terminal.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Searching
 
-## Learn More
+Typing a string in the search box will filter both lists without making calls to the server. This is done by ultilizing the global store and creating local state variables for each list.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Adding New Task
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# todo-frontend-HatchInnovations
->>>>>>> fb163ab79ff8441353e1cd8ebb4d7f63ad7c6b4f
+Typing a task name and clicking the submit button will post a new task in the "To Do" list. The button is disabled when there is an empty string in the text box.
